@@ -1,0 +1,12 @@
+# Crear entorno virtual con Python 3.12
+py -3.12 -m venv venv
+
+# Activar entorno virtual
+venv\Scripts\activate
+
+python.exe app.py
+python.exe app.py 2> error_log_5.tx
+
+
+#Instalar el archivo setup.py 
+pip install -e .

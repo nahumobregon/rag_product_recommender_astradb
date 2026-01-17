@@ -1,0 +1,16 @@
+langchain==0.3.14
+langchain-community==0.3.14
+langchain-core==0.3.29
+langchain-groq==0.2.3
+langchain-huggingface
+langchain-astradb
+pydantic<2.10
+typing_extensions==4.12.2
+datasets
+pypdf
+python-dotenv
+pandas
+flask
+huggingface-hub<0.25
+sentence-transformers
+prometheus_client

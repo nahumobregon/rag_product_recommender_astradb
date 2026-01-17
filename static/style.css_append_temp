@@ -1,0 +1,52 @@
+
+/* Recommendation Section */
+.recommendation-title {
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.recommendation-container {
+    display: flex;
+    justify-content: center; /* Center the cards */
+    gap: 15px; /* Space between cards */
+    margin-bottom: 20px;
+}
+
+.product-card {
+    background-color: #2c2f36;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px; /* Fixed width for cards */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card h5 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ffb900; /* Highlight product name */
+}
+
+.product-card p {
+    font-size: 0.85rem;
+    color: #ccc;
+    flex-grow: 1; /* Allow text to take up space */
+}
+
+@media (max-width: 768px) {
+    .recommendation-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .product-card {
+        width: 90%;
+    }
+}

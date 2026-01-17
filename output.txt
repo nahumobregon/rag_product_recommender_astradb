@@ -1,0 +1,52 @@
+C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\langchain_core\_api\deprecation.py:27: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
+Traceback (most recent call last):
+  File "C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\huggingface_hub\utils\_errors.py", line 304, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 410 Client Error: Gone for url: https://api-inference.huggingface.co/pipeline/feature-extraction/BAAI/bge-base-en-v1.5
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\11LLMOPSAIOPSBOOTCAMP\02FlipkartProductRecommender\app.py", line 42, in <module>
+    app = create_app()
+  File "C:\11LLMOPSAIOPSBOOTCAMP\02FlipkartProductRecommender\app.py", line 15, in create_app
+    vector_store = DataIngestor().ingest(load_existing=True)
+                   ~~~~~~~~~~~~^^
+  File "C:\11LLMOPSAIOPSBOOTCAMP\02FlipkartProductRecommender\flipkart\data_ingestion.py", line 10, in __init__
+    self.vstore = AstraDBVectorStore(
+                  ~~~~~~~~~~~~~~~~~~^
+        embedding=self.embedding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        namespace=Config.ASTRA_DB_KEYSPACE
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\langchain_astradb\vectorstores.py", line 971, in __init__
+    embedding_dimension = self._prepare_embedding_dimension(setup_mode_)
+  File "C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\langchain_astradb\vectorstores.py", line 1157, in _prepare_embedding_dimension
+    self._get_safe_embedding().embed_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        text="This is a sample sentence."
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\langchain_huggingface\embeddings\huggingface_endpoint.py", line 143, in embed_query
+    response = self.embed_documents([text])[0]
+               ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\langchain_huggingface\embeddings\huggingface_endpoint.py", line 112, in embed_documents
+    responses = self.client.post(
+        json={"inputs": texts, **_model_kwargs}, task=self.task
+    )
+  File "C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\huggingface_hub\inference\_client.py", line 304, in post
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\jjmar\AppData\Roaming\Python\Python314\site-packages\huggingface_hub\utils\_errors.py", line 371, in hf_raise_for_status
+    raise HfHubHTTPError(str(e), response=response) from e
+huggingface_hub.utils._errors.HfHubHTTPError: 410 Client Error: Gone for url: https://api-inference.huggingface.co/pipeline/feature-extraction/BAAI/bge-base-en-v1.5
+
+https://api-inference.huggingface.co is no longer supported. Please use https://router.huggingface.co instead.

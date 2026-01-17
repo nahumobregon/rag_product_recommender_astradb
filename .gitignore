@@ -1,0 +1,28 @@
+# Environments
+venv/
+venv312/
+.env
+
+# Python cache & artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Logs
+logs/
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# Temp scripts
+debug_*.py
+fix_*.py
+check_*.py
+strip_*.py
