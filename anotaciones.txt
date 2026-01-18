@@ -10,3 +10,13 @@ python.exe app.py 2> error_log_5.tx
 
 #Instalar el archivo setup.py 
 pip install -e .
+
+
+# Para crear el build en docker
+
+# Construir la imagen
+docker build -t flask-app:latest .
+
+# Ejecutar el contenedor
+docker run -d -p 5000:5000 --env-file .env flask-app:latest
+
